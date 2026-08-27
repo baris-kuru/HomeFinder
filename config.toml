@@ -1,0 +1,40 @@
+# Your personal config. This file is gitignored (holds your data + email password).
+# Edit the values below, then run:  .venv/bin/python -m homefinder.main --seed
+
+[poll]
+interval_seconds = 300          # how often to check for new listings (5 min)
+headless_scrape = true          # scrape in the background; applying always opens a visible window
+
+[filters]
+min_rooms = 2                   # inclusive
+max_rooms = 4                   # inclusive
+min_area = 47.0                 # m², inclusive
+max_area = 200.0                # m², inclusive (set high to ignore)
+max_rent = 1050.0               # € ceiling, compared against gross rent (Warmmiete)
+rent_basis = "gross"            # "gross" (Warmmiete) or "net" (Kaltmiete)
+require_no_wbs = true           # true = skip listings that require a WBS
+exclude_senior = true           # true = skip senior / age-restricted housing (e.g. "ab 60 Jahren")
+districts = []                  # e.g. ["Spandau", "Mitte"]; empty = all districts
+# Only these companies get an auto-filled form. All 7 are still scraped + emailed.
+apply_companies = ["gewobag", "degewo", "howoge", "stadtundland"]
+
+[applicant]
+# ---- FILL THESE IN with your real details (they go into the application forms) ----
+salutation = "Herr"             # Herr / Frau / Divers
+first_name = "Baris Can"
+last_name = "Kuru"
+email = "barisckuru@gmail.com"
+phone = "017662420401"               # e.g. "+49 170 1234567"
+street = "Sonnenallee"
+house_number = "18"
+zip = "12047"                 # e.g. "10115"
+city = "Berlin"
+num_occupants = 1               # total people moving in (adults + children)
+message = ""                    # optional note added to the inquiry
+
+[email]
+smtp_host = "smtp.gmail.com"
+smtp_port = 587
+username = "spammail@gmail.com"
+app_password = "Baris100!"        # Gmail App Password from myaccount.google.com/apppasswords
+to = "barisckuru@gmail.com"

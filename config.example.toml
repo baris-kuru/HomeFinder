@@ -1,0 +1,41 @@
+# Copy this file to config.toml and fill in your details.
+# config.toml is gitignored (it holds your personal data + email password).
+
+[poll]
+interval_seconds = 300          # how often to check for new listings (5 min)
+headless_scrape = true          # scrape headless; applying always opens a visible browser
+
+[filters]
+min_rooms = 2                   # inclusive
+max_rooms = 4                   # inclusive
+min_area = 55.0                 # m², inclusive
+max_area = 200.0               # m², inclusive (set high to ignore)
+max_rent = 1300.0              # € ceiling; compared against gross rent (Warmmiete)
+rent_basis = "gross"           # "gross" (rentGross) or "net" (rentNet / Kaltmiete)
+require_no_wbs = true           # true = exclude listings that require a WBS
+exclude_senior = true           # true = exclude senior / age-restricted housing (e.g. "ab 60 Jahren")
+districts = []                  # e.g. ["Spandau", "Mitte"]; empty = all districts
+# Only these companies get an auto-filled form. All 7 are still scraped + emailed.
+# Valid: gewobag, degewo, howoge, stadtundland, gesobau, wbm, berlinovo
+apply_companies = ["gewobag", "degewo", "howoge", "stadtundland"]
+
+[applicant]
+salutation = "Herr"            # Herr / Frau / Divers
+first_name = "Max"
+last_name = "Mustermann"
+email = "barisckuru@gmail.com"
+phone = "+49 170 0000000"
+street = "Beispielstraße"
+house_number = "1"
+zip = "10115"
+city = "Berlin"
+num_occupants = 1              # total people moving in (adults + children)
+# Optional free-text note added to the inquiry (leave empty for none)
+message = ""
+
+[email]
+smtp_host = "smtp.gmail.com"
+smtp_port = 587
+username = "barisckuru@gmail.com"
+app_password = "xxxx xxxx xxxx xxxx"   # Gmail App Password (not your normal password)
+to = "barisckuru@gmail.com"
